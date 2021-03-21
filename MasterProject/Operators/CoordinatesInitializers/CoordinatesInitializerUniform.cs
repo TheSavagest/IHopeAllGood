@@ -11,7 +11,7 @@ namespace MasterProject.Operators.CoordinatesInitializers
         : CoordinatesInitializer<TAlgorithm, TProblem, TSolution>
         where TAlgorithm : Algorithm<TAlgorithm, TProblem, TSolution>
         where TProblem : Function<TSolution>, IProblem<TProblem, TSolution>
-        where TSolution : class, IPoint<TSolution>
+        where TSolution : class, IPoint<TSolution>, new()
     {
         public override string SubType => "U";
         private Func<int>? GetDimension { get; set; }
@@ -60,8 +60,8 @@ namespace MasterProject.Operators.CoordinatesInitializers
             double[] upperSearchBorders = GetUpperSearchBorders();
             Random random = GetRandom();
 
-            Assert(dimension > 0);    
-            Assert(lowerSearchBorders.Length == dimension);    
+            Assert(dimension > 0);
+            Assert(lowerSearchBorders.Length == dimension);
             Assert(upperSearchBorders.Length == dimension);
 
             foreach (var solution in solutions)

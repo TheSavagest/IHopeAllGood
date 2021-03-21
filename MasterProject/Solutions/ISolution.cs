@@ -5,6 +5,6 @@ namespace MasterProject.Solutions
     public interface ISolution<out TSolution>
         : IDeepCloneable<TSolution>
     {
-        double Fitness { get; }
+        double Fitness { get; set; }
     }
 }

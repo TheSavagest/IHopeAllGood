@@ -9,7 +9,7 @@ namespace MasterProject.Operators.CoordinatesCrossovers
         : IOperator<TAlgorithm, CoordinatesCrossover<TAlgorithm, TProblem, TSolution>, TProblem, TSolution>
         where TAlgorithm : Algorithm<TAlgorithm, TProblem, TSolution>
         where TProblem : Function<TSolution>, IProblem<TProblem, TSolution>
-        where TSolution : IPoint<TSolution>
+        where TSolution : IPoint<TSolution>, new()
     {
         public string Type => "CC";
         public abstract string SubType { get; }

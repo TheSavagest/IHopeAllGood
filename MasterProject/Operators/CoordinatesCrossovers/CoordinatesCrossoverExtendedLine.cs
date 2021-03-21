@@ -11,7 +11,7 @@ namespace MasterProject.Operators.CoordinatesCrossovers
         : CoordinatesCrossover<TAlgorithm, TProblem, TSolution>
         where TAlgorithm : Algorithm<TAlgorithm, TProblem, TSolution>
         where TProblem : Function<TSolution>, IProblem<TProblem, TSolution>
-        where TSolution : class, IPoint<TSolution>
+        where TSolution : class, IPoint<TSolution>, new()
     {
         public override string SubType => "EL";
         private Func<int>? GetDimension { get; set; }

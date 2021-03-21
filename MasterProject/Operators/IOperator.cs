@@ -10,11 +10,10 @@ namespace MasterProject.Operators
         where TAlgorithm : Algorithm<TAlgorithm, TProblem, TSolution>
         where TOperator : IOperator<TAlgorithm, TOperator, TProblem, TSolution>
         where TProblem : class, IProblem<TProblem, TSolution>
-        where TSolution : ISolution<TSolution>
+        where TSolution : ISolution<TSolution>, new()
     {
         public string Type { get; }
         public string SubType { get; }
-        public string Name => $"{Type}-{SubType}";
 
         public void SetAlgorithm(TAlgorithm algorithm);
     }

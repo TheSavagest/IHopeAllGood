@@ -11,21 +11,19 @@ namespace MasterProject.Operators.CoordinatesCrossovers
         : CoordinatesCrossover<TAlgorithm, TProblem, TSolution>
         where TAlgorithm : Algorithm<TAlgorithm, TProblem, TSolution>
         where TProblem : Function<TSolution>, IProblem<TProblem, TSolution>
-        where TSolution : class, IPoint<TSolution>
+        where TSolution : class, IPoint<TSolution>, new()
     {
         public override string SubType => "EL";
-        private bool IsCentred { get; }
         private Func<int>? GetDimension { get; set; }
 
-        public CoordinatesCrossoverProportional(bool isCentred)
+        public CoordinatesCrossoverProportional()
         {
-            IsCentred = isCentred;
             GetDimension = null;
         }
 
         public override CoordinatesCrossover<TAlgorithm, TProblem, TSolution> DeepClone()
         {
-            return new CoordinatesCrossoverProportional<TAlgorithm, TProblem, TSolution>(IsCentred)
+            return new CoordinatesCrossoverProportional<TAlgorithm, TProblem, TSolution>()
             {
                 GetDimension = (Func<int>?) GetDimension?.Clone()
             };

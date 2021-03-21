@@ -9,7 +9,7 @@ namespace MasterProject.Operators.CoordinatesMutators
         : IOperator<TAlgorithm, CoordinatesMutator<TAlgorithm, TProblem, TSolution>, TProblem, TSolution>
         where TAlgorithm : Algorithm<TAlgorithm, TProblem, TSolution>
         where TProblem : Function<TSolution>, IProblem<TProblem, TSolution>
-        where TSolution : IPoint<TSolution>
+        where TSolution : IPoint<TSolution>, new()
     {
         public string Type => "CM";
         public abstract string SubType { get; }
@@ -18,6 +18,6 @@ namespace MasterProject.Operators.CoordinatesMutators
 
         public abstract void SetAlgorithm(TAlgorithm algorithm);
 
-        public abstract void MutateCoordinates(TSolution[] population);
+        public abstract void MutateCoordinates(TSolution[] solutions);
     }
 }

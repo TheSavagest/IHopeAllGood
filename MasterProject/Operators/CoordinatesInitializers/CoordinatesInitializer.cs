@@ -9,7 +9,7 @@ namespace MasterProject.Operators.CoordinatesInitializers
         : IOperator<TAlgorithm, CoordinatesInitializer<TAlgorithm, TProblem, TSolution>, TProblem, TSolution>
         where TAlgorithm : Algorithm<TAlgorithm, TProblem, TSolution>
         where TProblem : Function<TSolution>, IProblem<TProblem, TSolution>
-        where TSolution : IPoint<TSolution>
+        where TSolution : IPoint<TSolution>, new()
     {
         public string Type => "CI";
         public abstract string SubType { get; }

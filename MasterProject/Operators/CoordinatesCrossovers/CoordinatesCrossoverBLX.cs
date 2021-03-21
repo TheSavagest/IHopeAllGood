@@ -12,7 +12,7 @@ namespace MasterProject.Operators.CoordinatesCrossovers
         : CoordinatesCrossover<TAlgorithm, TProblem, TSolution>
         where TAlgorithm : Algorithm<TAlgorithm, TProblem, TSolution>
         where TProblem : Function<TSolution>, IProblem<TProblem, TSolution>
-        where TSolution : class, IPoint<TSolution>
+        where TSolution : class, IPoint<TSolution>, new()
     {
         public override string SubType => "BLX";
         private Func<int>? GetDimension { get; set; }
@@ -51,7 +51,7 @@ namespace MasterProject.Operators.CoordinatesCrossovers
             Random random = GetRandom();
 
             Assert(dimension > 0);
-            
+
             for (int c = 0; c < children.Length; c++)
             {
                 Assert(parents[c].Length == 2);
